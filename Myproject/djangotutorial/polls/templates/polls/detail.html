@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ module.title }}</title>
+</head>
+<body>
+    <h1>{{ module.title }}</h1>
+    <p>{{ module.description }}</p>
+    <p><strong>Start Date:</strong> {{ module.start_date }}</p>
+    <p><strong>End Date:</strong> {{ module.end_date }}</p>
+
+    <h2>Enrolled Students</h2>
+    <ul>
+        {% for student in module.student_set.all %}
+            <li>{{ student.first_name }} {{ student.last_name }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'polls:index' %}">Back to Module List</a>
+</body>
+</html>

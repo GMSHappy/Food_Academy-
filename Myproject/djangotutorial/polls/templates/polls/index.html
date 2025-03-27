@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Available Modules</title>
+</head>
+<body>
+    <h1>Available Modules</h1>
+    {% if latest_module_list %}
+        <ul>
+        {% for module in latest_module_list %}
+            <li>
+                <a href="{% url 'polls:detail' module.id %}">{{ module.title }}</a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No modules are available.</p>
+    {% endif %}
+</body>
+</html>
